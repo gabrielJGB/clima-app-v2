@@ -1,0 +1,11 @@
+// Importaciones de estilos de componentes individuales
+@import '../styles/variables';
+
+@import './SearchModal/SearchModal';
+@import './Header/Header';
+@import './CurrentWeather/CurrentWeather';
+@import './Forecast/Forecast';
+@import './Loading/Loading';
+@import './Carousel/Carousel';
+@import './Spinner/Spinner'
+

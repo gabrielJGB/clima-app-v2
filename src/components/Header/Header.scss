@@ -1,0 +1,27 @@
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: -webkit-fill-available;
+    height:7vh;
+
+    .title {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .search-button {
+        font-weight: bolder;
+        cursor: pointer;
+
+        img {
+            filter: invert(1);
+
+            &:hover {
+                filter: invert(0.8);
+            }
+        }
+    }
+
+}
