@@ -1,83 +1,130 @@
-.current-container{
+.current-container {
 
-    width:-webkit-fill-available;
-    background-color: rgb(57 57 57);
-    height: 17vh;
-    display:flex;
+    width: -webkit-fill-available;
+    background-color: rgb(51 51 51);
+    height: 15vh;
+    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
 
 }
 
 
-.current-temp{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
-    &img{
-        filter: invert(0);
-    }
 
-    .temp-num{
-        font-size: 35px;
-    }
-    .temp-unit{
+.temp-num {
+    font-size: 42px;
+
+    .temp-unit {
         font-size: 18px;
     }
 }
 
+.current-temp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-.variables{
-    display:flex;
+    &img {
+        filter: invert(0);
+    }
+
+}
+
+
+.condition {
+    text-align: center;
+    font-size: 12px;
+    max-width: 200px;
+    margin-bottom: 6px;
+
+}
+
+.variables {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-
-    .condition{
-        font-size: 12px;
-        max-width: 110px;
-        margin-bottom:6px
-    }
 
     .var {
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap:7px;
+        gap: 7px;
 
-        img{
+        img {
             filter: invert(1);
         }
 
     }
+    .wind_desc{
+        font-size: 13px;
+    }
 
 
-    .num{
+    .num {
         margin-right: 5px;
     }
 
-    .unit{
-        color:gray;
+    .unit {
+        color: gray;
         font-size: 12px;
     }
 
 
 }
 
-.sun{
+.sun {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap:8px;
+    gap: 8px;
 }
 
-.sun > div{
+.sun>div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:3px
+    gap: 3px
+}
+
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.update-time {
+    color: rgb(143, 143, 143);
+    font-size: 13px;
+    align-self: center;
+    text-align: center;
+    margin-top:7px;
+}
+
+.st{
+    font-size: 15px;
+}
+
+@media screen and (max-width:800px) {
+
+
+    .condition {
+
+        max-width: 100px;
+
+    }
+
+
+    .sun {
+
+        flex-direction: column;
+
+    }
+
 }

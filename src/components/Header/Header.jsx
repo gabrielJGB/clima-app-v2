@@ -16,7 +16,7 @@ const Header = () => {
       <div className='title'>{data.selected_city?"El tiempo en "+data.selected_city.nombre:"Pronóstico del tiempo"}</div>
 
       <div  className="search-button" 
-            onClick={()=>data.setShowSearchModal(prev=>prev?false:true)} 
+            onClick={()=>data.set_show_search_modal(prev=>prev?false:true)} 
       >
 
         <img src={magnifier} width={ICON_SIZE} height={ICON_SIZE} />

@@ -5,8 +5,8 @@ import { get_current_date } from '../utils/time'
 import {group_by_date} from '../utils/format_json'
 
 export const DataContext = createContext({
-  showSearchModal: null,
-  setShowSearchModal: () => { },
+  show_search_modal: null,
+  set_show_search_modal: () => { },
   selected_city: null,
   set_selected_city: () => { },
   selected_date:null, 
@@ -22,7 +22,7 @@ export const DataContext = createContext({
 })
 
 export function DataProvider({ children }) {
-  const [showSearchModal, setShowSearchModal] = useState(false)
+  const [show_search_modal, set_show_search_modal] = useState(false)
   const [selected_city, set_selected_city] = useState(false)
   
   // const [dates_array, set_dates_array] = useState(false)
@@ -35,22 +35,25 @@ export function DataProvider({ children }) {
   const [current_weather, set_current_weather] = useState(false)
   const [forecast_arr, set_forecast_arr] = useState([])
 
-  useEffect(() => {// inicio
+  useEffect(() => {
 
-    //verificar local storage, si está vacia, mostrar input de busqueda
-    if (!selected_city) {
-      setShowSearchModal(true)
+    const stored_city = localStorage.getItem('city');
+    if (stored_city) {
+      set_selected_city(JSON.parse(stored_city));
+    }
+    else {
+      set_show_search_modal(true)
     }
 
-    //setear la fecha de hoy
-
-    console.log(selected_date)
 
   }, [])
 
 
   useEffect(() => {
     if (selected_city) {
+
+      localStorage.setItem('city', JSON.stringify(selected_city));
+
       set_loading_1(true)
       set_loading_2(true)
       
@@ -72,6 +75,16 @@ export function DataProvider({ children }) {
   }, [selected_city])
 
 
+
+
+  useEffect(() => {
+
+    if (show_search_modal){
+        
+
+    }
+  }, [show_search_modal])
+  
   // useEffect(() => {
   //   if (dates_array) {
   //     set_selected_day(dates_array.filter(elem => elem.date === get_current_date())[0])
@@ -99,7 +112,7 @@ export function DataProvider({ children }) {
 
 
   const contextValue = {
-    showSearchModal, setShowSearchModal,
+    show_search_modal, set_show_search_modal,
     selected_city, set_selected_city,
     selected_date, set_selected_date,
     loading_1,loading_2,
