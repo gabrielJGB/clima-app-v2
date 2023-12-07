@@ -2,12 +2,11 @@
 
 
 const PROXY_URL = 'https://api.allorigins.win/raw?url';
-const req = { headers: { 'X-Requested-With': 'XMLHttpRequest' } }
 
-// const req = { headers: { 'X-Requested-With': 'XMLHttpRequest' } ,cache:'no-store'}
 
-// Función para realizar una solicitud GET a la API
-export default async (URL) => {
+export default async (URL,req) => {
+
+
   try {
     const response = await fetch(`${PROXY_URL}=${URL}`,req);
 

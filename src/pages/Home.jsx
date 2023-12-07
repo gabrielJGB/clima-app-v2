@@ -13,11 +13,6 @@ import Spinner from '../components/Spinner/Spinner.jsx'
 const Home = () => {
   const data = useContext(DataContext)
 
-  // useEffect(() => {
-  //     get_xml("").then(parsed=>console.log(parsed))
-  // }, [])
-
-
   return (
     <div className='home-container'>
       <Header />

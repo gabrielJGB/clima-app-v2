@@ -4,8 +4,7 @@ import drop from '../../assets/drop.png'
 import pressure from '../../assets/pressure.png'
 import wind_flag from '../../assets/wind_flag.png'
 import arrow from '../../assets/arrow.png'
-import sunrise from '../../assets/sunrise.png'
-import sunset from '../../assets/sunset.png'
+import Spinner from '../Spinner/Spinner'
 import { get_direction } from '../../utils/get_direction'
 
 import './CurrentWeather.scss'
@@ -15,7 +14,7 @@ const CurrentWeather = () => {
 
   const ICON_SIZE_1 = 15;
   const ICON_SIZE_2 = 35;
-  const ICON_SIZE_3 = 60;
+  const ICON_SIZE_3 = 50;
 
   useEffect(() => {
     // console.log(data.current_weather.response.cc)
@@ -132,7 +131,7 @@ const CurrentWeather = () => {
         data.current_weather ?
           <CurrentWeatherInfo />
           :
-          <></>
+          <div> ...... </div>
       }
 
 

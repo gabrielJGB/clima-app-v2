@@ -3,8 +3,9 @@
     display: flex;
     width: -webkit-fill-available;
     overflow: auto;
-    // box-shadow: 0 0 15px black;
+    box-shadow: 0 0 10px black;
     border-radius:5px;
+    transform: scale(1);
     
 
     .element {
@@ -13,18 +14,59 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: solid 2px;
-        border-radius: 0px;
+        border: solid 1px;
+        border-radius: 3px;
         border-color: #424242;
         background-color: rgb(20, 20, 20);
         transition: all 0.3s;
         cursor: pointer;
-        margin:  0 1px;
-        min-width: 80px;
-        height:15vh;
+        margin:  1px;
+        min-width: 95px;
+        height:14vh;
+
+
+
+        .day{
+            background-color: transparent;
+        }
+
+        .date{
+            background-color: transparent;
+            box-shadow: none;
+            font-size: 15px;
+        }
+
+        .maxmin{
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5px;
+            gap:15px;
+            font-weight: bold;
+            .max{
+                color:rgb(255, 45, 45)
+            }
+            .min{
+                color:rgb(0, 140, 255)
+            }
+        }
+
 
         &:hover{
-            transform: scale(0.9);
-          }
+            background-color: rgb(32, 32, 32);
+        }
     }
+    
+
+    
 }
+
+
+.selected_day{
+    background-color: rgb(235 235 235) !important;
+    color:black;
+    transform: scale(0.9);
+    transition: all 0.3s;
+    
+  }

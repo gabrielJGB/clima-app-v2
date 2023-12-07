@@ -24,14 +24,9 @@ export const DataContext = createContext({
 export function DataProvider({ children }) {
   const [show_search_modal, set_show_search_modal] = useState(false)
   const [selected_city, set_selected_city] = useState(false)
-  
-  // const [dates_array, set_dates_array] = useState(false)
-  // const [selected_day, set_selected_day] = useState(false)
   const [selected_date, set_selected_date] = useState(get_current_date())
-
   const [loading_1,set_loading_1] = useState(true)
   const [loading_2,set_loading_2] = useState(true)
-
   const [current_weather, set_current_weather] = useState(false)
   const [forecast_arr, set_forecast_arr] = useState([])
 
@@ -56,8 +51,10 @@ export function DataProvider({ children }) {
 
       set_loading_1(true)
       set_loading_2(true)
+      const req = { headers: { 'X-Requested-With': 'XMLHttpRequest' } }
+      const req_ns = { headers: { 'X-Requested-With': 'XMLHttpRequest' } ,cache:'no-store'}
       
-      fetch_xml(selected_city.links.meteograma)
+      fetch_xml(selected_city.links.meteograma,req)
         .then(xml_doc =>  xml_to_json_1(xml_doc) )
         .then( json => group_by_date(json) )
         .then( arr => set_forecast_arr(arr))
@@ -65,7 +62,7 @@ export function DataProvider({ children }) {
         .finally(()=> set_loading_1(false))
 
 
-      fetch_xml(selected_city.links.now)
+      fetch_xml(selected_city.links.now,req_ns)
         .then(xml_doc =>  xml_to_json_2(xml_doc) )
         .then( json => {set_current_weather( json ) })
         .catch(error=>console.error("Error 2: ",error))
@@ -75,39 +72,6 @@ export function DataProvider({ children }) {
   }, [selected_city])
 
 
-
-
-  useEffect(() => {
-
-    if (show_search_modal){
-        
-
-    }
-  }, [show_search_modal])
-  
-  // useEffect(() => {
-  //   if (dates_array) {
-  //     set_selected_day(dates_array.filter(elem => elem.date === get_current_date())[0])
-  //     console.log(selected_day)
-  //   }
-  // }, [dates_array])
-
-
-
-
-  // useEffect(() => {
-
-  //   if (data) {
-  //     let arr = []
-
-  //     data.forEach(elem => {
-  //       arr.push(xmlToJson(elem))
-  //     })
-  //     set_dates_array(agruparPorFecha(arr))
-
-
-  //   }
-  // }, [data])
 
 
 
