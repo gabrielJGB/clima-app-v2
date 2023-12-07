@@ -131,7 +131,7 @@ const CurrentWeather = () => {
         data.current_weather ?
           <CurrentWeatherInfo />
           :
-          <div> ...... </div>
+          <div className='loading'>Cargando...</div>
       }
 
 
