@@ -38,7 +38,7 @@ const Carousel = () => {
             </div>
 
             <div className="mm">
-              { `${elem.info.reduce(get_sum, 0)} mm`}
+              { `${parseFloat(elem.info.reduce(get_sum, 0)).toFixed(1)} mm`}
             </div>
 
           </div>
