@@ -6,6 +6,12 @@ const Carousel = () => {
   const data = useContext(DataContext)
 
 
+  
+  
+  const  get_sum = (total, num) => {
+    
+    return total + parseFloat(num.precipitation);
+  }
 
   return (
     <div className='carousel-container'>
@@ -29,6 +35,10 @@ const Carousel = () => {
             <div className="maxmin">
               <div className="max">{elem.max}</div>
               <div className="min">{elem.min}</div>
+            </div>
+
+            <div className="mm">
+              { `${elem.info.reduce(get_sum, 0)} mm`}
             </div>
 
           </div>

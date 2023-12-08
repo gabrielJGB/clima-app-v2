@@ -34,7 +34,7 @@
         .date{
             background-color: transparent;
             box-shadow: none;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .maxmin{
@@ -42,7 +42,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            margin-top: 5px;
+            
             gap:15px;
             font-weight: bold;
             .max{
@@ -51,6 +51,11 @@
             .min{
                 color:rgb(0, 140, 255)
             }
+        }
+
+        .mm{
+            margin-top: 2px;
+            font-size: 12px;
         }
 
 
