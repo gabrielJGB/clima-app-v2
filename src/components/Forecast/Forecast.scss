@@ -1,9 +1,10 @@
 .forecast-container {
     background-color: rgb(24, 24, 24);
     width: -webkit-fill-available;
-    height: 60vh;
+    height: 59vh;
+    
     overflow: auto;
-
+    
 
 }
 
@@ -19,13 +20,3 @@
 }
 
 
-@media screen and (max-width:800px){
-
-    .forecast-container {
-     
-        height: 57vh;
-     
-    
-    }
-
-}
