@@ -1,14 +1,14 @@
 // utils/api.js
 
 
-const PROXY_URL = 'https://api.allorigins.win/raw?url';
-
+// const PROXY_URL = 'https://api.allorigins.win/raw?url=';
+const PROXY_URL ='https://corsproxy.io/?'
 
 export default async (URL,req) => {
 
 
   try {
-    const response = await fetch(`${PROXY_URL}=${URL}`,req);
+    const response = await fetch(`${PROXY_URL}${URL}`,req);
 
     if (!response.ok) {
       throw new Error(`Error ${response.status}: ${response.statusText}`);

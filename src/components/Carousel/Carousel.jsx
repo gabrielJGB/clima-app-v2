@@ -1,26 +1,44 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { DataContext } from '../../context/DataContext'
 import './Carousel.scss'
 
 const Carousel = () => {
   const data = useContext(DataContext)
+  const carouselContainer = useRef(null);
 
+  useEffect(() => {
 
+    if(data.swipe_dir=== "right"){
+      carouselContainer.current.scrollBy(98,0)
+      
+    }
+    else if (data.swipe_dir=== "left"){
+      carouselContainer.current.scrollBy(-98,0)
+
+    }
+    data.set_swipe_dir("")
+
+  }, [data.swipe_dir])
   
   
   const  get_sum = (total, num) => {
-    
     return total + parseFloat(num.precipitation);
   }
 
-  return (
-    <div className='carousel-container'>
 
+
+  return (
+    <div 
+      className='carousel-container'  
+      ref={carouselContainer}
+    >
+
+    <div className='empty' ></div>
       {
         data.forecast_arr.map((elem, i) => (
           <div
             key={i}
-            onClick={() => { data.set_selected_date(elem.date) }}
+            onClick={() => data.set_selected_date(elem.date)}
             className={`element ${data.selected_date === elem.date ? "selected_day" : ""}`}
           >
             
@@ -45,7 +63,8 @@ const Carousel = () => {
 
         ))
       }
-
+   <div className='empty' ></div>
+   
     </div>
   )
 }

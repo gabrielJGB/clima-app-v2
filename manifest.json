@@ -1,4 +1,5 @@
 {
+    "version": "1.0.1",
     "name": "Clima",
     "short_name": "Clima",
     "description": "Clima actual y pronostico del tiempo",

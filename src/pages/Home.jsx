@@ -8,7 +8,7 @@ import background from '../assets/background.png'
 import { DataContext } from '../context/DataContext.jsx'
 import Spinner from '../components/Spinner/Spinner.jsx'
 import Satellite from '../components/Satellite/Satellite.jsx'
-
+import Componente from '../components/Componente.jsx'
 
 
 const Home = () => {
@@ -38,6 +38,7 @@ const Home = () => {
 
       <Satellite />
       <SearchModal />
+      {/* <Componente /> */}
     </div>
 
   )

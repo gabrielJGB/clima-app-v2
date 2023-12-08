@@ -3,14 +3,15 @@
     display: flex;
     width: -webkit-fill-available;
     overflow: auto;
-    box-shadow: 0 0 10px black;
-    border-radius:5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.425);
+    border-radius: 5px;
     transform: scale(1);
-    position:sticky;
-    bottom:0;
+    position: sticky;
+    bottom: 0;
+    scroll-behavior: smooth;
 
     .element {
-        
+
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -21,58 +22,64 @@
         background-color: rgb(20, 20, 20);
         transition: all 0.3s;
         cursor: pointer;
-        margin:  1px;
+        margin: 1px;
         min-width: 95px;
-        height:14vh;
+        height: 14vh;
 
 
 
-        .day{
+        .day {
             background-color: transparent;
         }
 
-        .date{
+        .date {
             background-color: transparent;
             box-shadow: none;
             font-size: 14px;
         }
 
-        .maxmin{
-            display:flex;
+        .maxmin {
+            display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            
-            gap:15px;
+
+            gap: 15px;
             font-weight: bold;
-            .max{
-                color:rgb(255, 45, 45)
+
+            .max {
+                color: rgb(255, 45, 45)
             }
-            .min{
-                color:rgb(0, 140, 255)
+
+            .min {
+                color: rgb(0, 140, 255)
             }
         }
 
-        .mm{
+        .mm {
             margin-top: 2px;
             font-size: 12px;
         }
 
 
-        &:hover{
+        &:hover {
             background-color: rgb(32, 32, 32);
         }
     }
-    
 
-    
+    .empty {
+        min-width: 95px;
+        height: 14vh;
+    }
+
 }
 
 
-.selected_day{
+.selected_day {
     background-color: rgb(235 235 235) !important;
-    color:black;
-    transform: scale(0.9);
+    color: black;
+    transform: scale(0.94);
     transition: all 0.3s;
-    
-  }
+
+}
+

@@ -96,14 +96,14 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
           </div>
         </div>
 
-
+{/* 
         <div className="var pressure">
           <img className='icon' src={pressure_icon} width={ICON_SIZE_1} height={ICON_SIZE_1} />
           <div className="text">
             <span className='num'>{pressure}</span>
             <span className='unit'>hPa</span>
           </div>
-        </div>
+        </div> */}
 
 
 
