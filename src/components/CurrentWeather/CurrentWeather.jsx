@@ -16,15 +16,12 @@ const CurrentWeather = () => {
   const ICON_SIZE_2 = 35;
   const ICON_SIZE_3 = 50;
 
-  useEffect(() => {
-    // console.log(data.current_weather.response.cc)
-  }, [])
 
 
 
   const CurrentWeatherInfo = () => {
     return (
-      <div className='current-container'>
+      <div className='current-container' onClick={()=> data.set_show_satellite(true) }>
 
         <div className="left">
           <div className="temp-num"> {data.current_weather.response.cc.temp} <span className='temp-unit'>°C</span></div>

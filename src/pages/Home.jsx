@@ -7,6 +7,7 @@ import Carousel from '../components/Carousel/Carousel.jsx'
 import background from '../assets/background.png'
 import { DataContext } from '../context/DataContext.jsx'
 import Spinner from '../components/Spinner/Spinner.jsx'
+import Satellite from '../components/Satellite/Satellite.jsx'
 
 
 
@@ -35,7 +36,7 @@ const Home = () => {
           </>
       }
 
-
+      <Satellite />
       <SearchModal />
     </div>
 

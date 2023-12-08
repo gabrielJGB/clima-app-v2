@@ -14,9 +14,11 @@ export const DataContext = createContext({
   loading_1:null,
   loading_2:null,
   current_weather:null, 
-  set_current_weather:null,
+  set_current_weather:()=>{},
   forecast_arr:null, 
-  set_forecast_arr:null
+  set_forecast_arr:()=>{},
+  show_satellite:null, 
+  set_show_satellite:()=>{}
 
   
 })
@@ -29,6 +31,7 @@ export function DataProvider({ children }) {
   const [loading_2,set_loading_2] = useState(true)
   const [current_weather, set_current_weather] = useState(false)
   const [forecast_arr, set_forecast_arr] = useState([])
+  const [show_satellite, set_show_satellite] = useState(false)
 
   useEffect(() => {
 
@@ -81,7 +84,8 @@ export function DataProvider({ children }) {
     selected_date, set_selected_date,
     loading_1,loading_2,
     forecast_arr, set_forecast_arr,
-    current_weather, set_current_weather
+    current_weather, set_current_weather,
+    show_satellite, set_show_satellite
   }
 
   return (
