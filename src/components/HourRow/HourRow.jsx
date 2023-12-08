@@ -10,31 +10,63 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
   const ICON_SIZE_2 = 40;
 
 
-  const get_color = time => {
-    if (time === "00:00")
-      return "color_00"
-    else if (time === "03:00")
-      return "color_03"
-    else if (time === "06:00")
-      return "color_06"
-    else if (time === "09:00")
-      return "color_09"
-    else if (time === "12:00")
-      return "color_12"
-    else if (time === "15:00")
-      return "color_15"
-    else if (time === "18:00")
-      return "color_18"
-    else if (time === "21:00")
-      return "color_21"
+  const get_color = (time) => {
+    switch (time) {
+      case "00:00":
+        return "color_00";
+      case "03:00":
+        return "color_03";
+      case "06:00":
+        return "color_06";
+      case "09:00":
+        return "color_09";
+      case "12:00":
+        return "color_12";
+      case "15:00":
+        return "color_15";
+      case "18:00":
+        return "color_18";
+      case "21:00":
+        return "color_21";
+      default:
+        return ""; 
+    }
+  };
+  
+
+
+  const get_hour = (hour) => {
+
+    switch (hour) {
+      case "00:00":
+        return "03:00";
+      case "03:00":
+        return "06:00";
+      case "06:00":
+        return "09:00";
+      case "09:00":
+        return "12:00";
+      case "12:00":
+        return "15:00";
+      case "15:00":
+        return "18:00";
+      case "18:00":
+        return "21:00";
+      case "21:00":
+        return "00:00";
+      default:
+        return ""
+        
+
+
+    }
 
   }
 
 
-
   return (
     <div className={`hour-row ${get_color(hour)}`} >
-      <div className="hour">{hour}</div>
+      <div className="hour">{hour} {get_hour(hour)} </div>
 
       <div className="temp">
         <img src={icon_url} width={ICON_SIZE_2} height={ICON_SIZE_2} />
