@@ -39,10 +39,7 @@ export function DataProvider({ children }) {
     if (stored_city) {
       set_selected_city(JSON.parse(stored_city));
     }
-    else {
-      set_show_search_modal(true)
-    }
-
+   
 
   }, [])
 
