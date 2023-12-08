@@ -47,13 +47,6 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
       <div className={`row-variables ${get_color(hour)} `} >
         <div className="condition" >{condition}</div>
 
-        <div className="var wind">
-          <img className='icon' src={arrow} style={{ transform: `rotate(${parseFloat(wind.deg)}deg)` }} width={ICON_SIZE_1} height={ICON_SIZE_1} />
-          <div className="text">
-            <span className='num'>{wind.speed}</span>
-            <span className='unit'>km/h{" " + wind.code}</span>
-          </div>
-        </div>
 
         <div className="var precitipation">
           <img className='icon' src={drop} width={ICON_SIZE_1} height={ICON_SIZE_1} />
@@ -62,6 +55,15 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
             <span className='unit'>mm</span>
           </div>
         </div>
+
+        <div className="var wind">
+          <img className='icon' src={arrow} style={{ transform: `rotate(${parseFloat(wind.deg)}deg)` }} width={ICON_SIZE_1} height={ICON_SIZE_1} />
+          <div className="text">
+            <span className='num'>{wind.speed}</span>
+            <span className='unit'>km/h{" " + wind.code}</span>
+          </div>
+        </div>
+
 
         <div className="var pressure">
           <img className='icon' src={pressure_icon} width={ICON_SIZE_1} height={ICON_SIZE_1} />
