@@ -31,7 +31,7 @@ const Forecast = () => {
     if (!reachedMargin) {
       const deltaX = Math.abs(currentX - startX);
 
-      if (deltaX >= 80) {
+      if (deltaX >= 90) {
         setReachedMargin(true);
         if (startX !== null && endX !== null) {
           const deltaX = endX - startX;
