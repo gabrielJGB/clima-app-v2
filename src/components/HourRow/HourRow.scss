@@ -4,8 +4,7 @@
     flex-direction: row;
     gap: 2px;
     margin-bottom: 2px;
-    text-shadow: 1px 1px 2px  rgb(0, 0, 0);
-
+    text-shadow: 1px 1px 1px  rgb(0, 0, 0);
     &>div {
         display: flex;
         justify-content: center;
@@ -97,7 +96,7 @@
 
 .color_12,
 .color_15 {
-    background-color: rgb(54, 150, 240)!important;
+    background-color: rgb(53, 142, 224)!important;
     
 
 //     .unit {
@@ -122,7 +121,7 @@
     .temp img{
 
         
-        filter: drop-shadow(0px 4px 7px rgb(31, 31, 31)) brightness(0.88) !important ;
+        filter: drop-shadow(0px 4px 7px rgb(31, 31, 31)) !important ;
 
     }
     // .unit {

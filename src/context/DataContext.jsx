@@ -20,7 +20,9 @@ export const DataContext = createContext({
   show_satellite:null, 
   set_show_satellite:()=>{},
   swipe_dir:null, 
-  set_swipe_dir:()=>{}
+  set_swipe_dir:()=>{},
+  show_favorites:null, 
+  set_show_favorites:()=>{}
   
 })
 
@@ -34,6 +36,7 @@ export function DataProvider({ children }) {
   const [forecast_arr, set_forecast_arr] = useState([])
   const [show_satellite, set_show_satellite] = useState(false)
   const [swipe_dir, set_swipe_dir] = useState(false)
+  const [show_favorites, set_show_favorites] = useState(false)
 
   useEffect(() => {
 
@@ -85,7 +88,8 @@ export function DataProvider({ children }) {
     forecast_arr, set_forecast_arr,
     current_weather, set_current_weather,
     show_satellite, set_show_satellite,
-    swipe_dir, set_swipe_dir
+    swipe_dir, set_swipe_dir,
+    show_favorites, set_show_favorites
   }
 
   return (

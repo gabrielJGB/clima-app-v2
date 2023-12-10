@@ -1,7 +1,9 @@
 import React from 'react'
 import { useContext } from 'react';
 import magnifier from '../../assets/magnifier.png'
-import arrow from '../../assets/arrow.png'
+import star from '../../assets/star.png'
+// import star_outline from '../../assets/star-outline.png'
+
 import { DataContext } from '../../context/DataContext';
 import './Header.scss'
 
@@ -11,7 +13,12 @@ const Header = () => {
 
   return (
     <div className='header-container'>
-      <div></div>
+            <div  className="favorites-button" 
+            onClick={()=>data.set_show_favorites(prev=>prev?false:true)} 
+      >
+
+        <img src={star} width={ICON_SIZE} height={ICON_SIZE} />
+      </div>
 
       <div className='title'>{data.selected_city?"El tiempo en "+data.selected_city.nombre:"Pronóstico del tiempo"}</div>
 
