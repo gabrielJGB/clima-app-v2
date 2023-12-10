@@ -9,11 +9,11 @@ const Carousel = () => {
   useEffect(() => {
 
     if(data.swipe_dir=== "right"){
-      carouselContainer.current.scrollBy(98,0)
+      carouselContainer.current.scrollBy(104,0)
       
     }
     else if (data.swipe_dir=== "left"){
-      carouselContainer.current.scrollBy(-98,0)
+      carouselContainer.current.scrollBy(-104,0)
 
     }
     data.set_swipe_dir("")
