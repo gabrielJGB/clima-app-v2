@@ -24,12 +24,12 @@
         cursor: pointer;
         margin: 1px;
         min-width: 100px;
-        height: 14vh;
+        height: 13vh;
 
 
 
         .day {
-            font-size: 16px;
+            font-size: 17px;
             background-color: transparent;
         }
 
@@ -60,27 +60,46 @@
         .mm {
             margin-top: 2px;
             font-size: 12px;
+
+            .drop{
+                margin-right: 2px;
+            }
         }
+
 
 
         &:hover {
             background-color: rgb(32, 32, 32);
         }
+
     }
 
     .empty {
         min-width: 120px;
         height: 14vh;
     }
+    
 
 }
 
 
 .selected_day {
-    background-color: rgb(235 235 235) !important;
+    background-color: rgb(226, 226, 226) !important;
     color: black;
-    // transform: scale(0.94);
-    transition: all 0.3s;
-
+    transform: scale(0.94);
+    border:0;
+    transition: all 0s;
+    img{
+        filter:contrast(1.2) 
+    }
+    
 }
 
+
+
+@media screen and (max-width:800px){
+    .element:hover {
+        background-color: red;
+    }
+
+}

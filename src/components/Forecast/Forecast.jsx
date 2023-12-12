@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { DataContext } from '../../context/DataContext'
 import HourRow from '../HourRow/HourRow'
 import Overview from '../Overview/Overview'
+import ScatterPlot from '../ScatterPlot/ScatterPlot'
 import Spinner from '../Spinner/Spinner'
 import './Forecast.scss'
 
@@ -15,6 +16,13 @@ const Forecast = () => {
   const [endX, setEndX] = useState(null);
   const [reachedMargin, setReachedMargin] = useState(false);
   const swipeContainerRef = useRef(null);
+
+  const datos = [
+    { x: 1, y: 2 },
+    { x: 2, y: 3 },
+    { x: 3, y: 5 },
+    // Agrega más puntos según sea necesario
+  ];
 
 
   const handleTouchStart = (e) => {
@@ -119,6 +127,8 @@ const Forecast = () => {
         <Spinner />
       }
 
+      
+    {/* <ScatterPlot data={datos}  /> */}
 
 
     </div>
