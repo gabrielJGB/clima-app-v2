@@ -1,59 +1,73 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { DataContext } from '../../context/DataContext';
+import { get_current_date, get_tomorrow_date } from '../../utils/time';
 
 const Overview = ({ info }) => {
-    const [forecast_1, set_forecast_1] = useState(false)
-    const [forecast_2, set_forecast_2] = useState(false)
-    const [forecast_3, set_forecast_3] = useState(false)
+
+    const data = useContext(DataContext)
+    const [forecast_arr, set_forecast_arr] = useState([])
+    const [date_to_show, set_date_to_show] = useState(false)
     const ICON_SIZE_2 = 32;
 
     useEffect(() => {
-        set_forecast_1(info.find(elem => elem.time === "06:00"))
-        set_forecast_2(info.find(elem => elem.time === "15:00"))
-        set_forecast_3(info.find(elem => elem.time === "21:00"))
+        let date_elem = data.forecast_arr.find(date => date.date === data.selected_date)
+        set_date_to_show(date_elem)
+
+    }, [[], data.selected_date])
+
+
+    useEffect(() => {
+        const arr = [
+            { time: "06:00", text: "Mañana" },
+            { time: "12:00", text: "Mediodía" },
+            { time: "15:00", text: "Tarde" },
+            { time: "21:00", text: "Noche" }
+        ]
+
+        let arr_ = []
+        arr.forEach((arr_elem) => {
+            let time_elem = info.find(elem => elem.time === arr_elem.time)
+            arr_.push({ data: time_elem, text: arr_elem.text })
+        })
+        set_forecast_arr(arr_)
+
 
     }, [info])
 
 
     return (
         <div className='overview-container'>
-
             {
-                forecast_1 &&
-                <div className="forecast">
-                    <div>Mañana</div>
-                    <div className="top">
-                        <img src={forecast_1.icon_url} width={ICON_SIZE_2} height={ICON_SIZE_2} />
-                        <div className='temp'>{forecast_1.temperature}<span className='unit'>°C</span> </div>
-                    </div>
-                </div>
+                date_to_show &&
 
-            }
+                <div className="date">
 
-            {
-                forecast_2 &&
+                    {date_to_show.date === get_current_date() ? "Hoy, " : ""}
+                    {date_to_show.date === get_tomorrow_date() ? "Mañana, " : ""}
 
-                <div className="forecast">
-                    <div>Tarde</div>
-                    <div className="top">
-                        <img src={forecast_2.icon_url} width={ICON_SIZE_2} height={ICON_SIZE_2} />
-                        <div className='temp'>{forecast_2.temperature}<span className='unit'>°C</span> </div>
-                    </div>
+                    {`${date_to_show.info[0].day_of_week.toLowerCase()} ${date_to_show.info[0].date_dd} `}
+
+                    {/* {`${date_to_show.info[0].day_of_week.toLowerCase()} ${date_to_show.info[0].date_dd} de ${date_to_show.info[0].month_name}`} */}
                 </div>
             }
+            <div className="day-forecast-container">
+                {
+                    forecast_arr.map((elem, i) => (
 
-            {
-                forecast_3 &&
+                        elem.data &&
 
-                <div className="forecast">
-                    <div>Noche</div>
-                    <div className="top">
-                        <img src={forecast_3.icon_url} width={ICON_SIZE_2} height={ICON_SIZE_2} />
-                        <div className='temp'>{forecast_3.temperature}<span className='unit'>°C</span> </div>
-                    </div>
-                </div>
+                        <div key={i} className="forecast">
+                            <div>{elem.text}</div>
+                            <div className="top">
+                                <img src={elem.data.icon_url} width={ICON_SIZE_2} height={ICON_SIZE_2} />
+                                <div className='temp'>{elem.data.temperature}<span className='unit'>°C</span> </div>
+                            </div>
+                        </div>
+                    ))
 
+                }
 
-            }
+            </div>
         </div>
     )
 }

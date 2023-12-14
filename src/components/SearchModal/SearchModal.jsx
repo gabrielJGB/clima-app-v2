@@ -52,7 +52,7 @@ const SearchModal = () => {
                 <div className='search-results'>
                     
                     {
-                        search_resp ?
+                        search_resp &&
                             search_resp.map((city, i) => (
                                 <div 
                                     key={i} 
@@ -63,8 +63,7 @@ const SearchModal = () => {
                                     }}
                                 >{`${city.nombre}, ${city.provincia}`}</div>
                             ))
-                            :
-                            <></>
+                          
                     }
 
                 </div>

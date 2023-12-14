@@ -5,6 +5,8 @@ import { DataContext } from '../../context/DataContext'
 import HourRow from '../HourRow/HourRow'
 import Overview from '../Overview/Overview'
 import Spinner from '../Spinner/Spinner'
+
+import { get_current_date, get_tomorrow_date } from '../../utils/time'
 import './Forecast.scss'
 
 
@@ -14,7 +16,8 @@ const Forecast = () => {
   const [startX, setStartX] = useState(null);
   const [endX, setEndX] = useState(null);
   const [reachedMargin, setReachedMargin] = useState(false);
-  const swipeContainerRef = useRef(null);
+  const forecast_container = useRef(null)
+
 
 
   const handleTouchStart = (e) => {
@@ -28,11 +31,12 @@ const Forecast = () => {
     }
 
     const currentX = e.touches[0].clientX;
+    
 
     if (!reachedMargin) {
       const deltaX = Math.abs(currentX - startX);
 
-      if (deltaX >= 90) {
+      if (deltaX >= 110) {
         setReachedMargin(true);
         if (startX !== null && endX !== null) {
           const deltaX = endX - startX;
@@ -53,7 +57,7 @@ const Forecast = () => {
             }
 
           }
-
+          
           setStartX(null);
           setEndX(null);
           setReachedMargin(false);
@@ -66,38 +70,30 @@ const Forecast = () => {
 
   };
 
+
   useEffect(() => {
     let date_elem = data.forecast_arr.find(date => date.date === data.selected_date)
     set_date_to_show(date_elem)
-  }, [[], data.selected_date])
 
-
-
-
+  }, [[],data.selected_date])
 
 
 
 
   return (
     <div
-      ref={swipeContainerRef}
+      ref={forecast_container}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       className='forecast-container'
     >
+
+
+
       {
         date_to_show &&
 
-        <div className="date">
-          {`${date_to_show.info[0].day_of_week} ${date_to_show.info[0].date_dd} de ${date_to_show.info[0].month_name}`}
-        </div>
-      }
-
-
-      {
-        date_to_show && 
-
-          <Overview info={date_to_show.info} />
+        <Overview info={date_to_show.info} />
       }
 
 
@@ -119,8 +115,8 @@ const Forecast = () => {
         <Spinner />
       }
 
-      
-    
+
+
 
 
     </div>

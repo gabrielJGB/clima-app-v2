@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { DataContext } from '../../context/DataContext'
 import drop from '../../assets/drop-color.png'
 import './Carousel.scss'
+import { get_current_date, get_tomorrow_date } from '../../utils/time'
 
 const Carousel = () => {
   const data = useContext(DataContext)
   const carouselContainer = useRef(null);
-  const [drop_arr, set_drop_arr] = useState([])
 
   useEffect(() => {
 
@@ -28,33 +28,13 @@ const Carousel = () => {
   }
 
 
-  useEffect(() => {
-
-    // console.log(Math.ceil(parseFloat(elem.info.reduce(get_sum, 0))))
-
-
-  }, [])
-
-
-  // const get_drop_count = (mm)=>{
-  //   [ ...Array(Math.ceil(parseFloat(elem.info.reduce(get_sum, 0)))).keys() ]
-  //   let parsed 
-
-  //   if(mm === 0)
-  //     return [0,1,2]
-
-
-  // }
-
-
   const get_drop_arr = (mm) => {
 
-    let num = Math.ceil(parseFloat(mm))
-    
+    let num = parseFloat(mm)
 
     if (num === 0)
       return []
-    else if (num > 0 && num <= 2)
+    else if (num > 0.2 && num <= 2)
       return [0]
     else if (num > 2 && num <= 6)
       return [0, 1]
@@ -64,8 +44,21 @@ const Carousel = () => {
       return [0, 1, 2, 3]
     else if (num > 50)
       return [0, 1, 2, 3, 4]
-    else{
+    else {
       return []
+    }
+
+  }
+
+
+  const get_element_title = (elem) => {
+    
+    if (elem.date === get_current_date())
+      return "Hoy"
+    else if (elem.date === get_tomorrow_date())
+      return "Mañana"
+    else {
+      return elem.info[0].day_of_week
     }
 
   }
@@ -86,31 +79,29 @@ const Carousel = () => {
           >
 
             <div className="day">
-              {elem.info[0].day_of_week}
-            </div>
+              {elem.date === get_current_date()?"Hoy": elem.info[0].day_of_week}
+
             <div className="date">
               {elem.info[0].date_dd_mm}
             </div>
 
-
-            <div className="maxmin">
-              <div className="max">{elem.max}</div>
-              <div className="min">{elem.min}</div>
             </div>
 
-            <div className="mm">
-              {/* {`${parseFloat(elem.info.reduce(get_sum, 0)).toFixed(1)} mm`} */}
 
-              {
-                get_drop_arr(elem.info.reduce(get_sum, 0)).map((e,i)=>(
-                  <img className='drop' src={drop} key={i} width={11} height={11}/>
-                ))
-              }
-              
+            <div className="bottom">
+              <div className="maxmin">
+                <div className="max">{elem.max}</div>
+                <div className="min">{elem.min}</div>
+              </div>
+
+              <div className="mm">
+                {
+                  get_drop_arr(elem.info.reduce(get_sum, 0)).map((e, i) => (
+                    <img className='drop' src={drop} key={i} width={11} height={11} />
+                  ))
+                }
+              </div>
             </div>
-            {
-              // !get_drop_arr(elem.info.reduce(get_sum, 0)).length && <div>.</div>
-            }
 
           </div>
 

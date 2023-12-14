@@ -1,14 +1,14 @@
 import {get_day_of_week,get_month_name} from './time'
 
 export const xml_to_json_1 = xml => {
-  var jsonObj = {};
+  let jsonObj = {};
 
   if (xml.nodeType == 1) {
-    for (var i = 0; i < xml.attributes.length; i++) {
-      var attribute = xml.attributes[i];
+    for (let i = 0; i < xml.attributes.length; i++) {
+      let attribute = xml.attributes[i];
       if ((xml.nodeName === 'time') && (attribute.name === 'from')  ) {
-        // Dividir el valor del atributo 'from' en fecha y hora
-        var dateTimeParts = attribute.value.split('T');
+        
+        let dateTimeParts = attribute.value.split('T');
         
 
         jsonObj['date'] = {
@@ -29,9 +29,9 @@ export const xml_to_json_1 = xml => {
   }
 
   if (xml.hasChildNodes()) {
-    for (var j = 0; j < xml.childNodes.length; j++) {
-      var childNode = xml.childNodes[j];
-      var childObj = xml_to_json_1(childNode);
+    for (let j = 0; j < xml.childNodes.length; j++) {
+      let childNode = xml.childNodes[j];
+      let childObj = xml_to_json_1(childNode);
 
       if (jsonObj[childNode.nodeName] == "symbol" ) {
         jsonObj[childNode.nodeName] = childObj.number

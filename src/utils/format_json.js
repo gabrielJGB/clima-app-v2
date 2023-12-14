@@ -13,7 +13,7 @@ export const  group_by_date = (data) => {
     });
 
 
-    const resultadoFinal = Object.entries(result).map(([fecha, datos]) => ({
+    const array_final = Object.entries(result).map(([fecha, datos]) => ({
       date: fecha,
       info: datos,
       max: get_max_min(datos).max,
@@ -22,16 +22,16 @@ export const  group_by_date = (data) => {
 
 
 
-    resultadoFinal.forEach((elem, i) => {
-      if ((i + 1) < resultadoFinal.length) {
-        let x = resultadoFinal[i + 1].info[0]
+    array_final.forEach((elem, i) => {
+      if ((i + 1) < array_final.length) {
+        let x = array_final[i + 1].info[0]
         elem.info.push(x)
       }
     })
 
 
 
-    return resultadoFinal;
+    return array_final;
   }
 
 
