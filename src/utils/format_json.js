@@ -21,14 +21,14 @@ export const  group_by_date = (data) => {
     }));
 
 
-
+/*
     array_final.forEach((elem, i) => {
       if ((i + 1) < array_final.length) {
         let x = array_final[i + 1].info[0]
         elem.info.push(x)
       }
     })
-
+*/
 
 
     return array_final;
