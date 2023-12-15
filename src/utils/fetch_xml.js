@@ -2,13 +2,14 @@
 
 
 // const PROXY_URL = 'https://api.allorigins.win/raw?url=';
+const date = new Date().getTime()
 const PROXY_URL ='https://corsproxy.io/?'
 
 export default async (URL,req) => {
 
 
   try {
-    const response = await fetch(`${PROXY_URL}${URL}`,req);
+    const response = await fetch(`${PROXY_URL}${URL}?_${date}`,req);
 
     if (!response.ok) {
       throw new Error(`Error ${response.status}: ${response.statusText}`);

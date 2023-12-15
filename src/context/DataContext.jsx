@@ -50,6 +50,7 @@ export function DataProvider({ children }) {
 
 
   useEffect(() => {
+    
     if (selected_city) {
 
       localStorage.setItem('city', JSON.stringify(selected_city));
@@ -73,11 +74,16 @@ export function DataProvider({ children }) {
         .catch(error=>console.error("Error 2: ",error))
         .finally(()=> set_loading_2(false))
 
+        
+
     }
   }, [selected_city])
 
 
 
+useEffect(() => {
+  console.log(selected_date)
+}, [selected_date])
 
 
   const contextValue = {

@@ -1,7 +1,27 @@
 .forecast-container {
-    background-color: rgb(19, 19, 19);
-    width: -webkit-fill-available;
-    height: 59vh;
-    overflow: auto;
+    margin:0 auto;
+    width: 50%;
+    height: 100vh;
     
+    .header{
+        
+        background-color: rgb(19, 19, 19);
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.74);
+        position: sticky;
+        z-index: 144;
+        top:0;
+        padding: 7px 0;
+        font-size: 19px;
+        text-align: center;
+
+    }
+    
+}
+
+
+@media screen and (max-width:800px){
+    .forecast-container {
+        width: -webkit-fill-available;
+        
+    }    
 }

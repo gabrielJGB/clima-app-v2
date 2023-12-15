@@ -2,13 +2,15 @@ import React, { useContext, useEffect } from 'react'
 import Header from '../components/Header/Header.jsx'
 import CurrentWeather from '../components/CurrentWeather/CurrentWeather.jsx'
 import Forecast from '../components/Forecast/Forecast.jsx'
-import SearchModal from '../components/SearchModal/SearchModal.jsx'
 import Carousel from '../components/Carousel/Carousel.jsx'
+import SearchModal from '../components/SearchModal/SearchModal.jsx'
 import background from '../assets/background.png'
-import { DataContext } from '../context/DataContext.jsx'
 import Spinner from '../components/Spinner/Spinner.jsx'
 import Satellite from '../components/Satellite/Satellite.jsx'
 import Favorites from '../components/Favorites/Favorites.jsx'
+import MainContainer from '../components/MainContainer/MainContainer.jsx'
+
+import { DataContext } from '../context/DataContext.jsx'
 
 
 
@@ -17,7 +19,7 @@ const Home = () => {
 
   return (
     <div className='home-container'>
-      <Header />
+      
       
       {data.selected_city?
         data.loading_1 && data.loading_2 ?
@@ -25,8 +27,12 @@ const Home = () => {
           :
           <>
             <CurrentWeather />
-            <Forecast />
-            <Carousel />
+            
+            {/* <Forecast />
+            <Carousel /> */}
+
+            <MainContainer />
+
           </>
           :
           <>

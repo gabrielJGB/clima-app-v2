@@ -17,7 +17,7 @@ const Forecast = () => {
   const [endX, setEndX] = useState(null);
   const [reachedMargin, setReachedMargin] = useState(false);
   const forecast_container = useRef(null)
-
+  const delta_x_margin = 110
 
 
   const handleTouchStart = (e) => {
@@ -36,7 +36,7 @@ const Forecast = () => {
     if (!reachedMargin) {
       const deltaX = Math.abs(currentX - startX);
 
-      if (deltaX >= 110) {
+      if (deltaX >= delta_x_margin) {
         setReachedMargin(true);
         if (startX !== null && endX !== null) {
           const deltaX = endX - startX;
@@ -89,12 +89,21 @@ const Forecast = () => {
     >
 
 
-
+{/* 
       {
         date_to_show &&
 
         <Overview info={date_to_show.info} />
+      } */}
+
+
+      {
+        date_to_show &&
+        <div className="header">
+            {`${date_to_show.info[0].day_of_week} ${date_to_show.info[0].date_dd} de  ${date_to_show.info[0].month_name}`}
+        </div>
       }
+
 
 
       {date_to_show ?
