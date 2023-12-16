@@ -3,7 +3,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: -webkit-fill-available;
+    width: 50%;
+    margin: 0 auto;
     padding:0 2px;
     height:7vh;
 
@@ -12,7 +13,7 @@
         text-align: center;
     }
 
-    .search-button, .favorites-button {
+    .search-button, .favorites-button,.back-button {
         font-weight: bolder;
         outline:none;
         cursor: pointer;
@@ -25,5 +26,19 @@
             }
         }
     }
+    .back-button{
+        margin-left: 2px;
+        img{
+            filter:invert(0.8)
+        }
+    }
 
+}
+
+
+@media screen and (max-width:800px){
+    .header-container {
+        width: -webkit-fill-available;
+  
+    }
 }
