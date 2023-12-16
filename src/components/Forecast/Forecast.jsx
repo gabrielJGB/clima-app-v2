@@ -17,7 +17,7 @@ const Forecast = () => {
   const [endX, setEndX] = useState(null);
   const [reachedMargin, setReachedMargin] = useState(false);
   const forecast_container = useRef(null)
-  const delta_x_margin = 110
+  const delta_x_margin = 150
 
 
   const handleTouchStart = (e) => {
@@ -75,9 +75,14 @@ const Forecast = () => {
     let date_elem = data.forecast_arr.find(date => date.date === data.selected_date)
     set_date_to_show(date_elem)
 
+    
+
   }, [[],data.selected_date])
 
 
+useEffect(() => {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}, [])
 
 
   return (

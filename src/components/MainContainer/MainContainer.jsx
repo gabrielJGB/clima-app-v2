@@ -7,7 +7,7 @@ import './MainContainer.scss'
 const MainContainer = () => {
   const data = useContext(DataContext)
 
-
+  
 
   return (
     <div className='main-container'>

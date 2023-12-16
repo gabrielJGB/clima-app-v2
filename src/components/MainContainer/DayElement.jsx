@@ -39,20 +39,20 @@ const DayElement = ({ info, date, temp }) => {
 
 
     const get_drop_arr = (mm) => {
-
+        let arr = [0, 0.1, 5, 7, 20, 50]
         let num = parseFloat(mm)
 
-        if (num === 0)
+        if (num === arr[0])
             return []
-        else if (num > 0.1 && num <= 3)
+        else if (num > arr[1] && num <= arr[2])
             return [0]
-        else if (num > 3 && num <= 6)
+        else if (num > arr[2] && num <= arr[3])
             return [0, 1]
-        else if (num > 6 && num <= 20)
+        else if (num > arr[3] && num <= arr[4])
             return [0, 1, 2]
-        else if (num > 20 && num <= 50)
+        else if (num > arr[4] && num <= arr[5])
             return [0, 1, 2, 3]
-        else if (num > 50)
+        else if (num > arr[5])
             return [0, 1, 2, 3, 4]
         else {
             return []
@@ -106,9 +106,9 @@ const DayElement = ({ info, date, temp }) => {
 
                         <div key={i} className="elem">
                             <div className="text">{elem.text}</div>
-                            
-                                <img src={elem.data.icon_url} width={ICON_SIZE} height={ICON_SIZE} />
-                            
+
+                            <img src={elem.data.icon_url} width={ICON_SIZE} height={ICON_SIZE} />
+
                             <div className="temp">{elem.data.temperature}<span className='unit'>°C</span> </div>
                         </div>
                     ))

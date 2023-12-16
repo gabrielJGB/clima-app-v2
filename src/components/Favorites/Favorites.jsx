@@ -70,6 +70,7 @@ const Favorites = () => {
 
                 <div className='title'>Favoritos</div>
                 <div></div>
+                
 
             </div>
 
