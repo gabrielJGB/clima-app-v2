@@ -3,10 +3,11 @@ import { useRef } from 'react'
 import { useContext } from 'react'
 import { DataContext } from '../../context/DataContext'
 import HourRow from '../HourRow/HourRow'
-import Overview from '../Overview/Overview'
 import Spinner from '../Spinner/Spinner'
 
-import { get_current_date, get_tomorrow_date } from '../../utils/time'
+import arrow_left from '../../assets/arrow_left.png'
+import arrow_right from '../../assets/arrow_right.png'
+
 import './Forecast.scss'
 
 
@@ -18,6 +19,7 @@ const Forecast = () => {
   const [reachedMargin, setReachedMargin] = useState(false);
   const forecast_container = useRef(null)
   const delta_x_margin = 150
+  const ICON_SIZE = 30
 
 
   const handleTouchStart = (e) => {
@@ -82,14 +84,15 @@ const Forecast = () => {
 
 useEffect(() => {
   window.scrollTo({top: 0, behavior: 'smooth'});
+
 }, [])
 
 
   return (
     <div
       ref={forecast_container}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
+      // onTouchStart={handleTouchStart}
+      // onTouchMove={handleTouchMove}
       className='forecast-container'
     >
 
@@ -105,7 +108,43 @@ useEffect(() => {
       {
         date_to_show &&
         <div className="header">
+
+              {
+                data.forecast_arr.indexOf(data.forecast_arr.find(elem => elem.date === data.selected_date))?
+
+            <span className='arrow'>
+              <img 
+                src={arrow_left} 
+                width={ICON_SIZE} 
+                height={ICON_SIZE}
+                onClick={()=>{
+                     let index = data.forecast_arr.indexOf(data.forecast_arr.find(elem => elem.date === data.selected_date))
+                  if (index - 1 >= 0 && index - 1 < data.forecast_arr.length) {
+                    data.set_selected_date(data.forecast_arr[index - 1].date)
+                  }
+                }}
+              />
+            </span>
+            :
+            <span style={{width:"50px"}}></span>
+              }
+
+            <span>
             {`${date_to_show.info[0].day_of_week} ${date_to_show.info[0].date_dd} de  ${date_to_show.info[0].month_name}`}
+            </span>
+            <span className='arrow'>
+            <img 
+              src={arrow_right}  
+              width={ICON_SIZE} 
+              height={ICON_SIZE} 
+              onClick={()=>{
+                let index = data.forecast_arr.indexOf(data.forecast_arr.find(elem => elem.date === data.selected_date))
+                if (index + 1 >= 0 && index + 1 < data.forecast_arr.length) {
+                  data.set_selected_date(data.forecast_arr[index + 1].date)
+                }
+              }}
+            />
+            </span>
         </div>
       }
 

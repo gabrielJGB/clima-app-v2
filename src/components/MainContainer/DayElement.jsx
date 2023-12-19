@@ -74,12 +74,12 @@ const DayElement = ({ info, date, temp }) => {
 
                     {
                         date === get_current_date() ?
-                            "Hoy"
+                            `Hoy, ${info[0].day_of_week.toLowerCase()} ${info[0].date_dd}`
                             :
                             date === get_tomorrow_date() ?
-                                "Mañana"
+                            `Mañana, ${info[0].day_of_week.toLowerCase()} ${info[0].date_dd}`
                                 :
-                                `${info[0].day_of_week} ${info[0].date_dd} `
+                                `${info[0].day_of_week} ${info[0].date_dd}`
                     }
 
                     <div className='maxmin'>

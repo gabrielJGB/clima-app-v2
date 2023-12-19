@@ -22,7 +22,10 @@ export const xml_to_json_1 = xml => {
         }
 
 
-      } else {
+      }else if (xml.nodeName === 'sun') {
+        jsonObj[attribute.name] = attribute.value;
+
+      }else {
         jsonObj[attribute.name] = attribute.value;
       }
     }

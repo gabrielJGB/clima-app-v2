@@ -66,7 +66,8 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
 
   return (
     <div className={`hour-row ${get_color(hour)}`} >
-      <div className="hour">{hour} {get_hour(hour)} </div>
+      <div className="hour">
+        <div>{hour}</div> <div>{get_hour(hour)} </div></div>
 
       <div className="temp">
         <img src={icon_url} width={ICON_SIZE_2} height={ICON_SIZE_2} />

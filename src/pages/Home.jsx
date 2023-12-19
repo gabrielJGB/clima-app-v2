@@ -17,6 +17,8 @@ import { DataContext } from '../context/DataContext.jsx'
 const Home = () => {
   const data = useContext(DataContext)
 
+  
+  
   return (
     <div className='home-container'>
       

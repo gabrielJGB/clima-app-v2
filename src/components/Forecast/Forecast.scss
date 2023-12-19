@@ -1,19 +1,31 @@
 .forecast-container {
     margin:0 auto ;
-    padding-bottom: 400px;
+    padding-bottom: 500px;
     width: 50%;
     
     
     .header{
-        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         background-color: rgb(19, 19, 19);
         box-shadow: 0 0 7px rgba(0, 0, 0, 0.74);
         position: sticky;
-        z-index: 144;
+        z-index: 12;
         top:0;
-        padding: 10px 0;
-        font-size: 19px;
+        padding: 7px 0;
+        margin-bottom: 7px;
+        font-size: 20px;
         text-align: center;
+        .arrow{
+            padding: 2px 10px;
+            filter:invert(0.8);
+            cursor: pointer;
+            &:hover{
+                filter:invert(0.9);
+            }
+        }
 
     }
     
@@ -22,8 +34,8 @@
 
 @media screen and (max-width:800px){
     .forecast-container {
-        margin: 0 3px;
-        width: -webkit-fill-available;
+    
+        width: 99%;
         
     }    
 }

@@ -1,10 +1,11 @@
 .current-container {
 
-    width: -webkit-fill-available;
+    width: 99%;
+    min-height: 83px;
     background-color: rgb(51 51 51);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.733);
     border-radius: 10px;
-    height: 15vh;
+    padding: 15px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -13,10 +14,18 @@
     
 }
 
-
+.error{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:10px
+    
+}
 
 
 .temp-num {
+    text-align: center;
     font-size: 42px;
 
     .temp-unit {
@@ -62,6 +71,15 @@
         }
 
     }
+
+    .sun{
+        
+        img {
+            
+            filter: invert(0) ;
+        }
+    }
+
     .wind_desc{
         font-size: 13px;
     }
@@ -79,27 +97,16 @@
 
 }
 
-.sun {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-}
 
-.sun>div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3px
-}
 
 
 .left {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    .outdated{
+        color: rgb(226, 20, 20) !important
+    }
 
 }
 .update-time {
@@ -108,6 +115,9 @@
     align-self: center;
     text-align: center;
     margin-top:7px;
+    .day{
+        font-size: 11px;
+    }
 }
 
 .st{
@@ -131,11 +141,6 @@
 
     }
 
-
-    .sun {
-
-        flex-direction: column;
-
-    }
+    
 
 }

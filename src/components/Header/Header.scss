@@ -5,9 +5,8 @@
     align-items: center;
     width: 50%;
     margin: 0 auto;
-    padding:0 2px;
     height:7vh;
-
+    
     .title {
         font-size: 18px;
         text-align: center;
@@ -38,7 +37,7 @@
 
 @media screen and (max-width:800px){
     .header-container {
-        width: -webkit-fill-available;
+        width: 99%;
   
     }
 }

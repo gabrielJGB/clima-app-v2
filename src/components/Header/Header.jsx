@@ -4,8 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import magnifier from '../../assets/magnifier.png'
 import star from '../../assets/star.png'
 import back_button from '../../assets/back_button.png'
-// import star_outline from '../../assets/star-outline.png'
-
 import { DataContext } from '../../context/DataContext';
 import './Header.scss'
 
@@ -17,10 +15,6 @@ const Header = () => {
   const ICON_SIZE = 30;
   const ICON_SIZE_2 = 24;
 
-  useEffect(() => {
-
-    console.log(pathname);
-  }, [pathname])
 
 
   return (
@@ -30,7 +24,10 @@ const Header = () => {
       {
         pathname === "/" &&
         <div className="favorites-button"
-          onClick={() => data.set_show_favorites(prev => prev ? false : true)}
+          onClick={() => {
+            data.set_show_favorites(prev => prev ? false : true)
+
+          }}
         >
 
           <img src={star} width={ICON_SIZE} height={ICON_SIZE} />
@@ -38,17 +35,21 @@ const Header = () => {
       }
 
 
+        {
+           pathname === "/day" && <div></div>
+        }
 
-      {
+
+      {/* {
         pathname === "/day" &&
         <div className="back-button"
-          onClick={() => { navigate("/") }}
+          onClick={() => { navigate("/", { replace: true, relative:'path' }) }}
         >
 
 
           <img src={back_button} width={ICON_SIZE_2} height={ICON_SIZE_2} />
         </div>
-      }
+      } */}
 
 
 
