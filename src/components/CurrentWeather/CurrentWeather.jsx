@@ -40,6 +40,7 @@ const CurrentWeather = () => {
         {
           data.current_weather.response.cc.date != "1969/12/31" ?
             <>
+
               <div className="left">
                 <div className="temp-num"> {data.current_weather.response.cc.temp} <span className='temp-unit'>°C</span></div>
                 <div className={`update-time ${is_outdated(data.current_weather.response.cc.date,data.current_weather.response.cc.time)?"outdated":""}`}>
@@ -49,7 +50,6 @@ const CurrentWeather = () => {
                   <div className='day'>{format_update_date(data.current_weather.response.cc.date)}</div>
                 </div>
               </div>
-
 
               <div className="current-temp">
                 {/* <img src={data.current_weather.response.cc.dir.img?.attributes.src.replace("..", "https://www.meteobahia.com.ar")} width={ICON_SIZE_3} height={ICON_SIZE_3} /> */}
@@ -99,7 +99,7 @@ const CurrentWeather = () => {
                   <img src={sunrise} width={ICON_SIZE_1} height={ICON_SIZE_1} />
                   <div className="text">
                     <span className='num'>{data.sun.rise}</span>
-                    <span className='unit'>AM</span>
+                    <span className='unit'>hs</span>
                   </div>
                 </div>
 
@@ -107,7 +107,7 @@ const CurrentWeather = () => {
                   <img src={sunset} width={ICON_SIZE_1} height={ICON_SIZE_1} />
                   <div className="text">
                     <span className='num'>{data.sun.set}</span>
-                    <span className='unit'>PM</span>
+                    <span className='unit'>hs</span>
                   </div>
                 </div>
 
