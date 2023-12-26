@@ -39,7 +39,7 @@ const DayElement = ({ info, date, temp }) => {
 
 
     const get_drop_arr = (mm) => {
-        let arr = [0, 0.1, 5, 7, 20, 50]
+        let arr = [0, 0.1, 5, 12, 20, 50]
         let num = parseFloat(mm)
 
         if (num === arr[0])

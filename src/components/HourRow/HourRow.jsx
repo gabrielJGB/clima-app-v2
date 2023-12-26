@@ -10,6 +10,7 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
   const ICON_SIZE_2 = 40;
 
 
+
   const get_color = (time) => {
     switch (time) {
       case "00:00":
@@ -29,10 +30,10 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
       case "21:00":
         return "color_21";
       default:
-        return ""; 
+        return "";
     }
   };
-  
+
 
 
   const get_hour = (hour) => {
@@ -56,9 +57,32 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
         return "00:00";
       default:
         return ""
-        
 
 
+
+    }
+
+  }
+
+
+  const get_drop_arr = (mm) => {
+    let arr = [0, 0.1, 5, 12, 20, 50]
+    let num = parseFloat(mm)
+
+    if (num === arr[0])
+      return []
+    else if (num > arr[1] && num <= arr[2])
+      return [0]
+    else if (num > arr[2] && num <= arr[3])
+      return [0, 1]
+    else if (num > arr[3] && num <= arr[4])
+      return [0, 1, 2]
+    else if (num > arr[4] && num <= arr[5])
+      return [0, 1, 2, 3]
+    else if (num > arr[5])
+      return [0, 1, 2, 3, 4]
+    else {
+      return []
     }
 
   }
@@ -82,12 +106,30 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
 
 
         <div className="var precitipation">
-          <img className='icon' src={drop} width={ICON_SIZE_1} height={ICON_SIZE_1} />
-          <div className="text">
-            <span className='num'>{precipitation}</span>
-            <span className='unit'>mm</span>
-          </div>
+
+          {
+            precipitation === "0.0" ?
+              <div className='text'>Sin lluvia</div>
+              :
+              <>
+                <img className='icon' src={drop} width={ICON_SIZE_1} height={ICON_SIZE_1} />
+                <div className="text">
+                  <span className='num'>{precipitation}</span>
+                  <span className='unit'>mm</span>
+                </div>
+              </>
+          }
+
+
+
+          {/* {
+            get_drop_arr(precipitation).map((e, i) => (
+              <img className='drop' src={drop} key={i} width={ICON_SIZE_1} height={ICON_SIZE_1} />
+            ))
+          } */}
+
         </div>
+
 
         <div className="var wind">
           <img className='icon' src={arrow} style={{ transform: `rotate(${parseFloat(wind.deg)}deg)` }} width={ICON_SIZE_1} height={ICON_SIZE_1} />
@@ -97,7 +139,7 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
           </div>
         </div>
 
-{/* 
+        {/* 
         <div className="var pressure">
           <img className='icon' src={pressure_icon} width={ICON_SIZE_1} height={ICON_SIZE_1} />
           <div className="text">
