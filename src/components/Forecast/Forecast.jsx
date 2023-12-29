@@ -117,6 +117,7 @@ useEffect(() => {
                 src={arrow_left} 
                 width={ICON_SIZE} 
                 height={ICON_SIZE}
+                alt="arrow"
                 onClick={()=>{
                      let index = data.forecast_arr.indexOf(data.forecast_arr.find(elem => elem.date === data.selected_date))
                   if (index - 1 >= 0 && index - 1 < data.forecast_arr.length) {
@@ -137,6 +138,7 @@ useEffect(() => {
               src={arrow_right}  
               width={ICON_SIZE} 
               height={ICON_SIZE} 
+              alt="arrow"
               onClick={()=>{
                 let index = data.forecast_arr.indexOf(data.forecast_arr.find(elem => elem.date === data.selected_date))
                 if (index + 1 >= 0 && index + 1 < data.forecast_arr.length) {

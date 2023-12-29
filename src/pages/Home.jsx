@@ -38,7 +38,7 @@ const Home = () => {
           </>
           :
           <>
-            <img src={background} width={200} height={200}  style={{marginTop:170}}/>
+            <img src={background} alt="background" width={200} height={200}  style={{marginTop:170}}/>
             <button 
               onClick={()=>data.set_show_search_modal(prev=>prev?false:true)}
               className='main-search-btn'>Buscar una ciudad</button>

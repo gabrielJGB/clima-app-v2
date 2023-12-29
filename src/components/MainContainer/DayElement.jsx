@@ -91,7 +91,7 @@ const DayElement = ({ info, date, temp }) => {
 
                     {
                         get_drop_arr(info.reduce(get_sum, 0)).map((e, i) => (
-                            <img className='drop' src={drop} key={i} width={11} height={11} />
+                            <img className='drop' alt="drop" src={drop} key={i} width={11} height={11} />
                         ))
                     }
                 </div>
@@ -107,7 +107,7 @@ const DayElement = ({ info, date, temp }) => {
                         <div key={i} className="elem">
                             <div className="text">{elem.text}</div>
 
-                            <img src={elem.data.icon_url} width={ICON_SIZE} height={ICON_SIZE} />
+                            <img src={elem.data.icon_url} alt="icon" width={ICON_SIZE} height={ICON_SIZE} />
 
                             <div className="temp">{elem.data.temperature}<span className='unit'>°C</span> </div>
                         </div>

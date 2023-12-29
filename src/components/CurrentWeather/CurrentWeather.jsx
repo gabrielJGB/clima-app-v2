@@ -53,7 +53,7 @@ const CurrentWeather = () => {
 
               <div className="current-temp">
                 {/* <img src={data.current_weather.response.cc.dir.img?.attributes.src.replace("..", "https://www.meteobahia.com.ar")} width={ICON_SIZE_3} height={ICON_SIZE_3} /> */}
-                <img src={`https://www.meteobahia.com.ar/imagenes/new/${data.current_weather.response.cc.icon}.png`} width={ICON_SIZE_3} height={ICON_SIZE_3} />
+                <img src={`https://www.meteobahia.com.ar/imagenes/new/${data.current_weather.response.cc.icon}.png`} alt={data.current_weather.response.cc.condition} width={ICON_SIZE_3} height={ICON_SIZE_3} />
                 <div className="condition">{data.current_weather.response.cc.condition}</div>
               </div>
 
@@ -69,7 +69,7 @@ const CurrentWeather = () => {
                   {
                     data.current_weather.response.cc.wind_dir != " " ?
                       <>
-                        <img src={arrow} style={{ transform: `rotate(${get_direction(data.current_weather.response.cc.wind_dir)}deg)` }} width={ICON_SIZE_1} height={ICON_SIZE_1} />
+                        <img src={arrow} alt="arrow" style={{ transform: `rotate(${get_direction(data.current_weather.response.cc.wind_dir)}deg)` }} width={ICON_SIZE_1} height={ICON_SIZE_1} />
                         <div className="text">
                           <span className='num'>{data.current_weather.response.cc.wind_sp}</span>
                           <span className='unit'>km/h {data.current_weather.response.cc.wind_dir} </span>
@@ -77,7 +77,7 @@ const CurrentWeather = () => {
                       </>
                       :
                       <>
-                        <img src={wind_flag} width={ICON_SIZE_1} height={ICON_SIZE_1} />
+                        <img src={wind_flag} alt="flag" width={ICON_SIZE_1} height={ICON_SIZE_1} />
                         <div className="text">
                           <span className='wind_desc'>{data.current_weather.response.cc.wind_sp}</span>
                         </div>
@@ -88,7 +88,7 @@ const CurrentWeather = () => {
                 </div>
 
                 <div className="var precitipation">
-                  <img src={drop} width={ICON_SIZE_1} height={ICON_SIZE_1} />
+                  <img src={drop} width={ICON_SIZE_1} alt="drop" height={ICON_SIZE_1} />
                   <div className="text">
                     <span className='num'>{data.current_weather.response.cc.pp}</span>
                     <span className='unit'>mm</span>
@@ -96,7 +96,7 @@ const CurrentWeather = () => {
                 </div>
 
                 <div className="var sun">
-                  <img src={sunrise} width={ICON_SIZE_1} height={ICON_SIZE_1} />
+                  <img src={sunrise} alt="sunrise" width={ICON_SIZE_1} height={ICON_SIZE_1} />
                   <div className="text">
                     <span className='num'>{data.sun.rise}</span>
                     <span className='unit'>hs</span>
@@ -104,7 +104,7 @@ const CurrentWeather = () => {
                 </div>
 
                 <div className="var sun">
-                  <img src={sunset} width={ICON_SIZE_1} height={ICON_SIZE_1} />
+                  <img src={sunset} alt="sunset" width={ICON_SIZE_1} height={ICON_SIZE_1} />
                   <div className="text">
                     <span className='num'>{data.sun.set}</span>
                     <span className='unit'>hs</span>
@@ -136,7 +136,7 @@ const CurrentWeather = () => {
 
             :
             <div className='error'>
-              <img src="https://www.meteobahia.com.ar/imagenes/new/nodisponible.png" width={ICON_SIZE_2} height={ICON_SIZE_2} />
+              <img src="https://www.meteobahia.com.ar/imagenes/new/nodisponible.png" alt="Error" width={ICON_SIZE_2} height={ICON_SIZE_2} />
               <div>Estación meteorológica fuera de linea</div>
             </div>
 

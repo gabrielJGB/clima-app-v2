@@ -94,7 +94,7 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
         <div>{hour}</div> <div>{get_hour(hour)} </div></div>
 
       <div className="temp">
-        <img src={icon_url} width={ICON_SIZE_2} height={ICON_SIZE_2} />
+        <img src={icon_url} alt={condition} width={ICON_SIZE_2} height={ICON_SIZE_2} />
         <div className="temp-num">
           <span className="num">{temp}</span>
           <span className="unit">°C</span>
@@ -106,13 +106,17 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
 
 
         <div className="var precitipation">
+          <img className='icon' alt="drop" src={drop} width={ICON_SIZE_1} height={ICON_SIZE_1} />
 
           {
             precipitation === "0.0" ?
-              <div className='text'>Sin lluvia</div>
+
+              <>
+                <div className='text'>Sin lluvia</div>
+              </>
               :
               <>
-                <img className='icon' src={drop} width={ICON_SIZE_1} height={ICON_SIZE_1} />
+                {/* <img className='icon' alt="drop" src={drop} width={ICON_SIZE_1} height={ICON_SIZE_1} /> */}
                 <div className="text">
                   <span className='num'>{precipitation}</span>
                   <span className='unit'>mm</span>
@@ -132,7 +136,7 @@ const HourRow = ({ hour, temp, condition, wind, precipitation, pressure, icon_ur
 
 
         <div className="var wind">
-          <img className='icon' src={arrow} style={{ transform: `rotate(${parseFloat(wind.deg)}deg)` }} width={ICON_SIZE_1} height={ICON_SIZE_1} />
+          <img className='icon' alt="arrow" src={arrow} style={{ transform: `rotate(${parseFloat(wind.deg)}deg)` }} width={ICON_SIZE_1} height={ICON_SIZE_1} />
           <div className="text">
             <span className='num'>{wind.speed}</span>
             <span className='unit'>km/h{" " + wind.code}</span>

@@ -7,7 +7,7 @@
     padding-bottom: 200px;
 
     .day-element {
-        background-color: rgb(54, 54, 54);
+        background-color: rgb(45 45 45);
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.733);
         border-radius: 10px;
         display: flex;
@@ -15,7 +15,8 @@
         padding: 0 5px;
         cursor: pointer;
         &:hover{
-            background-color: rgb(58, 58, 58);
+            transition:all 0.2s;
+            background-color: rgb(54, 54, 54);
         }
 
         .header {
@@ -49,12 +50,12 @@
                 
                 .max {
                     font-weight: bold;
-                    color: rgb(252, 64, 64)
+                    color: rgb(233, 46, 46)
                 }
     
                 .min {
                     font-weight: bold;
-                    color: rgb(96 184 255)
+                    color: rgb(111, 190, 255)
                 }
                 .unit{
                     font-size: 12px;

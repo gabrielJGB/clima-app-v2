@@ -5,7 +5,7 @@
     justify-content: space-around;
     gap: 2px;
     margin: 8px auto;
-    width:97%;
+    width:100%;
     // margin-bottom: 8px;
     // padding:0 7px 0 20px;
     padding: 5px 0;
@@ -146,6 +146,7 @@ $time_color: rgb(53, 133, 207);
     }
 
     .hour-row{
+        width:98%;
         .row{
             width: 98%;
             
