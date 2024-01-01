@@ -12,6 +12,7 @@ const Overview = ({ info }) => {
     useEffect(() => {
         let date_elem = data.forecast_arr.find(date => date.date === data.selected_date)
         set_date_to_show(date_elem)
+        
 
     }, [[], data.selected_date])
 

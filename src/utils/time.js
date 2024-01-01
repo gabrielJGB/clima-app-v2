@@ -1,7 +1,8 @@
 export const get_current_date = ()=> {
 
     let date = new Date()
-    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}`
+    
+    return `${date.getFullYear()}-${String(date.getMonth()).padStart(1, '0') + 1}-${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}`
 
   }
 
@@ -12,7 +13,7 @@ export const get_tomorrow_date = () =>{
   tomorrow.setDate(today.getDate() + 1);
 
   const year = tomorrow.getFullYear();
-  const month = (tomorrow.getMonth() + 1).toString()
+  const month = String(tomorrow.getMonth() + 1).padStart(2, '0'); 
   const day = tomorrow.getDate().toString().padStart(2, '0');
 
   const tomorrowDate = `${year}-${month}-${day}`;
