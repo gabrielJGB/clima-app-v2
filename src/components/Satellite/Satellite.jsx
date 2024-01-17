@@ -14,10 +14,15 @@ const Satellite = () => {
         <div className='satellite-container' style={{ display: (data.show_satellite ? "flex" : "none") }}>
             <div></div>
             <div className="img-container">
-                <img src={`https://www.meteobahia.com.ar/imagenes/satelite/${selected}.jpg`} />
+                {/* <img src={`https://www.meteobahia.com.ar/imagenes/satelite/${selected}.jpg`} /> */}
+                <img src="https://www.meteobahia.com.ar/scripts/mapas/Clouds-00.png" alt="Imagen"  />
             </div>
 
             <div className="button-container">
+
+
+                
+
                 <button
                     className={`${selected === "topesn" ? "active" : ""}`}
                     onClick={() => { set_selected("topesn") }}
