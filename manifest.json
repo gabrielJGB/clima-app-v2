@@ -1,8 +1,8 @@
 {
-    "version": "1.0.18",
+    "version": "1.0.19",
     "name": "Clima",
     "short_name": "Clima",
-    "description": "Clima actual y pronostico del tiempo",
+    "description": "Clima actual y pronostico para los proximos días",
     "theme_color": "#004b7a",
     "background_color" : "#004b7a",
     "icons": [
