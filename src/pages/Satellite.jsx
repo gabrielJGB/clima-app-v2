@@ -52,7 +52,7 @@ const Satellite = () => {
                 <h3>Imágen de radar</h3>
 
                 <img
-                    className={selected_img_1 ? "selected-img" : ""}
+                    className={selected_img_1 ? "selected-img" : "normal-img"}
                     onClick={() => set_selected_img_1(prev => !prev)}
                     typeof='image/gif'
                     src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/SSA/13/GOES16-SSA-13-900x540.gif" alt="Imagen"  />
@@ -62,7 +62,7 @@ const Satellite = () => {
                 <h3>Actividad eléctrica</h3>
 
                 <img
-                    className={selected_img_2 ? "selected-img" : ""}
+                    className={selected_img_2 ? "selected-img" : "normal-img"}
                     onClick={() => set_selected_img_2(prev => !prev)}
                     typeof='image/gif' src="https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/ssa/EXTENT3/GOES16-SSA-EXTENT3-900x540.gif" alt="Imagen"  />
 
@@ -70,8 +70,8 @@ const Satellite = () => {
                 <h3>Nubes</h3>
 
                 <img
-                    className={selected_img_3 ? "selected-img" : ""}
-                    onClick={() => set_selected_img_2(prev => !prev)}
+                    className={selected_img_3 ? "selected-img" : "normal-img"}
+                    onClick={() => set_selected_img_3(prev => !prev)}
                     typeof='image/gif' src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/ssa/02/GOES16-SSA-02-900x540.gif" alt="Imagen"  /> 
 
             </div>

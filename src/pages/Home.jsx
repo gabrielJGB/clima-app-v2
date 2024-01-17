@@ -29,12 +29,7 @@ const Home = () => {
           :
           <>
             <CurrentWeather />
-            
-            {/* <Forecast />
-            <Carousel /> */}
-
             <MainContainer />
-
           </>
           :
           <>
