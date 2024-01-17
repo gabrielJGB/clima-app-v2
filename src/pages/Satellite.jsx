@@ -8,10 +8,8 @@ import {
 
 const Satellite = () => {
     const [selected, set_selected] = useState("topesc")
-const [index, set_index] = useState(0)
-
-    const arr = ["00","03","06","09","12","15","18","21","24"]
-
+    const [selected_img_1, set_selected_img_1] = useState(false)
+    const [selected_img_2, set_selected_img_2] = useState(false)
 
 
     const Controls = () => {
@@ -46,20 +44,33 @@ const [index, set_index] = useState(0)
             <h4></h4>
 
             <div className="img">
-                {/* <TransformWrapper
-                    wrapperClass={"wrapper"}
-                >
-                    <TransformComponent > */}
-                        {/* <img
+                {/* <img
                             src={`https://www.meteobahia.com.ar/imagenes/satelite/${selected}.jpg`}
                             alt="Satellite"
                         /> */}
-                        <img src="https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/ssa/EXTENT3/GOES16-SSA-EXTENT3-900x540.gif" alt="Imagen" />
+                <h2>Imagen de radar</h2>
+                {/* <TransformWrapper centerOnInit >
+                    <TransformComponent > */}
+                        <img 
                         
-                        {/* <img src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/SSA/13/GOES16-SSA-13-900x540.gif" alt="Imagen" /> */}
-                    {/* </TransformComponent> */}
-                    {/* <Controls /> */}
-                {/* </TransformWrapper> */}
+                        className={selected_img_1&&"selected-img"}
+                        onClick={()=>set_selected_img_1(prev=>!prev)}
+                        typeof="gif" src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/SSA/13/GOES16-SSA-13-900x540.gif" alt="Imagen" width={window.innerWidth - 19} />
+
+                    {/* </TransformComponent>
+                </TransformWrapper> */}
+
+                <h2>Actividad eléctrica</h2>
+                {/* <TransformWrapper>
+                    <TransformComponent > */}
+                        <img 
+                         className={selected_img_2&&"selected-img"}
+                         onClick={()=>set_selected_img_2(prev=>!prev)}
+                        typeof='gif' src="https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/ssa/EXTENT3/GOES16-SSA-EXTENT3-900x540.gif" alt="Imagen" width={window.innerWidth - 20} />
+                    {/* </TransformComponent>
+                </TransformWrapper> */}
+
+                {/* <img src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/SSA/13/GOES16-SSA-13-900x540.gif" alt="Imagen" /> */}
 
 
 
@@ -67,7 +78,7 @@ const [index, set_index] = useState(0)
 
 
             <a className='link' href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G16&sector=ssa&band=14&length=36&dim=1">
-                Imagenes satelitales GOES-16
+                Imagen satelite GOES-16
             </a>
 
             {/* <div className="buttons">

@@ -8,6 +8,14 @@
     flex-direction: column;
     align-items: center;
 
+h4,h2{
+    margin: 0 !important
+
+}
+img{
+    margin:15px 0
+}
+
     .zoom-control {
 
         width: 90%;
@@ -19,6 +27,20 @@
         button {
             padding: 35px 0;
         }
+    }
+    .img{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .selected-img{
+            
+            position:fixed;
+            right:-470px;
+            bottom:100px;
+            width: 300%;
+        }
+        
     }
 
     .buttons {
@@ -76,11 +98,11 @@
         }
 
         .img {
-            margin-top: 60px;
+            
 
             img {
                 
-                width: 100% !important
+                
             }
         }
     }
