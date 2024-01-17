@@ -8,9 +8,11 @@ import arrow from '../../assets/arrow.png'
 import { get_direction } from '../../utils/get_direction'
 
 import './CurrentWeather.scss'
+import { useNavigate } from 'react-router-dom'
 
 const CurrentWeather = () => {
   const data = useContext(DataContext)
+  const navigate = useNavigate()
 
   const ICON_SIZE_1 = 15;
   const ICON_SIZE_2 = 32;
@@ -35,7 +37,7 @@ const CurrentWeather = () => {
 
   const CurrentWeatherInfo = () => {
     return (
-      <div className='current-container' onClick={() => data.set_show_satellite(true)}>
+      <div className='current-container' onClick={() => navigate("/satellite")}>
 
         {
           data.current_weather.response.cc.date != "1969/12/31" ?

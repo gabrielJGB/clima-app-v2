@@ -10,7 +10,7 @@ const DayElement = ({ info, date, temp }) => {
 
     const navigate = useNavigate();
 
-    const ICON_SIZE = 40;
+    const ICON_SIZE = 37;
 
     useEffect(() => {
         const arr = [

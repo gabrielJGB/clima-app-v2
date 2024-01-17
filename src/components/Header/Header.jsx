@@ -22,7 +22,7 @@ const Header = () => {
 
 
       {
-        pathname === "/" &&
+        pathname === "/" ?
         <div className="favorites-button"
           onClick={() => {
             data.set_show_favorites(prev => prev ? false : true)
@@ -32,12 +32,11 @@ const Header = () => {
 
           <img src={star} width={ICON_SIZE} height={ICON_SIZE} />
         </div>
+        :
+        <div></div>
       }
 
 
-        {
-           pathname === "/day" && <div></div>
-        }
 
 
       {/* {
@@ -68,10 +67,13 @@ const Header = () => {
 
 
 
-      {
-        pathname === "/day" &&
-        <div></div>
-      }
+      
+        
+    
+{
+           pathname != "/"  && <div></div>
+        }
+      
 
     </div>
   )

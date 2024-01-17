@@ -22,7 +22,7 @@ const MainContainer = () => {
       }
 
 
-
+      <img style={{display:"none"}} src="https://www.meteobahia.com.ar/imagenes/satelite/topesc.jpg" />
 
     </div>
   )

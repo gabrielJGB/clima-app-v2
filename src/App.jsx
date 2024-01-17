@@ -4,6 +4,7 @@ import DataProvider from './context/DataContext'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ForecastPage from './pages/ForecastPage'
 import Layout from './pages/Layout'
+import Satellite from './pages/Satellite'
 
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
             <Route index element={<Home />} />
 
             <Route path="/day" element={<ForecastPage />} />
+            <Route path="/satellite" element={<Satellite />} />
 
             
           </Route>
