@@ -49,30 +49,29 @@ const Satellite = () => {
                             alt="Satellite"
                         /> */}
                 <h2>Imagen de radar</h2>
-                {/* <TransformWrapper centerOnInit >
-                    <TransformComponent > */}
+
                 <img
                     className={selected_img_1 ? "selected-img" : ""}
                     onClick={() => set_selected_img_1(prev => !prev)}
                     type='gif'
                     src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/SSA/13/GOES16-SSA-13-900x540.gif" alt="Imagen" width={window.innerWidth - 19} />
 
-                {/* </TransformComponent>
-                </TransformWrapper> */}
+
 
                 <h2>Actividad eléctrica</h2>
-                {/* <TransformWrapper>
-                    <TransformComponent > */}
+
                 <img
                     className={selected_img_2 ? "selected-img" : ""}
                     onClick={() => set_selected_img_2(prev => !prev)}
                     typeof='image/gif' src="https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/ssa/EXTENT3/GOES16-SSA-EXTENT3-900x540.gif" alt="Imagen" width={window.innerWidth - 20} />
-                {/* </TransformComponent>
-                </TransformWrapper> */}
-
-                {/* <img src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/SSA/13/GOES16-SSA-13-900x540.gif" alt="Imagen" /> */}
 
 
+                <h2>Nubes</h2>
+
+                <img
+                    className={selected_img_2 ? "selected-img" : ""}
+                    onClick={() => set_selected_img_2(prev => !prev)}
+                    typeof='image/gif' src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/ssa/02/GOES16-SSA-02-900x540.gif" alt="Imagen" width={window.innerWidth - 20} /> 
 
             </div>
 
