@@ -10,6 +10,7 @@ const Satellite = () => {
     const [selected, set_selected] = useState("topesc")
     const [selected_img_1, set_selected_img_1] = useState(false)
     const [selected_img_2, set_selected_img_2] = useState(false)
+    const [selected_img_3, set_selected_img_3] = useState(false)
 
 
     const Controls = () => {
@@ -41,37 +42,37 @@ const Satellite = () => {
         // </div>
         <div className="satellite_container">
 
-            <h4></h4>
+            
 
             <div className="img">
                 {/* <img
                             src={`https://www.meteobahia.com.ar/imagenes/satelite/${selected}.jpg`}
                             alt="Satellite"
                         /> */}
-                <h2>Imagen de radar</h2>
+                <h3>Imágen de radar</h3>
 
                 <img
                     className={selected_img_1 ? "selected-img" : ""}
                     onClick={() => set_selected_img_1(prev => !prev)}
-                    type='gif'
-                    src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/SSA/13/GOES16-SSA-13-900x540.gif" alt="Imagen" width={window.innerWidth - 19} />
+                    typeof='image/gif'
+                    src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/SSA/13/GOES16-SSA-13-900x540.gif" alt="Imagen"  />
 
 
 
-                <h2>Actividad eléctrica</h2>
-
-                <img
-                    className={selected_img_2 ? "selected-img" : ""}
-                    onClick={() => set_selected_img_2(prev => !prev)}
-                    typeof='image/gif' src="https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/ssa/EXTENT3/GOES16-SSA-EXTENT3-900x540.gif" alt="Imagen" width={window.innerWidth - 20} />
-
-
-                <h2>Nubes</h2>
+                <h3>Actividad eléctrica</h3>
 
                 <img
                     className={selected_img_2 ? "selected-img" : ""}
                     onClick={() => set_selected_img_2(prev => !prev)}
-                    typeof='image/gif' src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/ssa/02/GOES16-SSA-02-900x540.gif" alt="Imagen" width={window.innerWidth - 20} /> 
+                    typeof='image/gif' src="https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/ssa/EXTENT3/GOES16-SSA-EXTENT3-900x540.gif" alt="Imagen"  />
+
+
+                <h3>Nubes</h3>
+
+                <img
+                    className={selected_img_3 ? "selected-img" : ""}
+                    onClick={() => set_selected_img_2(prev => !prev)}
+                    typeof='image/gif' src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/ssa/02/GOES16-SSA-02-900x540.gif" alt="Imagen"  /> 
 
             </div>
 

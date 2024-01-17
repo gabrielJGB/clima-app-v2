@@ -22,7 +22,7 @@ const MainContainer = () => {
       }
 
 
-      <img style={{display:"none"}} src="https://www.meteobahia.com.ar/imagenes/satelite/topesc.jpg" />
+      <img typeof="image/gif" style={{display:"none"}} src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/SSA/13/GOES16-SSA-13-900x540.gif" />
 
     </div>
   )

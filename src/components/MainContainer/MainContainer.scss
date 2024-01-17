@@ -112,7 +112,7 @@
     .main-container {
         .day-element {
             &:hover {
-                cursor: none;
+                cursor: default;
                 background-color: rgb(45 45 45);
             }
         }
