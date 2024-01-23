@@ -23,8 +23,10 @@ export const DataContext = createContext({
   set_swipe_dir: () => { },
   show_favorites: null,
   set_show_favorites: () => { },
-  sun:null,
-  set_sun:()=>{}
+  sun: null,
+  set_sun: () => { },
+  error: null,
+  set_error: () => { }
 
 })
 
@@ -39,12 +41,13 @@ export function DataProvider({ children }) {
   const [show_satellite, set_show_satellite] = useState(false)
   const [swipe_dir, set_swipe_dir] = useState(false)
   const [show_favorites, set_show_favorites] = useState(false)
-  const [sun,set_sun] = useState(false)
+  const [sun, set_sun] = useState(false)
+  const [error, set_error] = useState(false)
 
   const get_sun_rise_set = (obj) => {
     set_sun({
-      rise:obj.weatherdata.sun.rise.split('T')[1],
-      set:obj.weatherdata.sun.set.split('T')[1]
+      rise: obj.weatherdata.sun.rise.split('T')[1],
+      set: obj.weatherdata.sun.set.split('T')[1]
     })
     return obj
   }
@@ -75,16 +78,45 @@ export function DataProvider({ children }) {
         .then(xml_doc => xml_to_json_1(xml_doc))
         .then(resp => get_sun_rise_set(resp))
         .then(json => group_by_date(json))
-        .then(arr => set_forecast_arr(arr))
-        .catch(error => console.error("Error 1: ", error))
-        .finally(() => set_loading_1(false))
+        .then(arr => {
+          set_forecast_arr(arr)
+          localStorage.setItem('forecast', JSON.stringify(arr));
+          set_error(false)
+        })
+        .catch(error => {
+          set_error(error)
+
+          const forecast_arr = localStorage.getItem('forecast');
+          if (forecast_arr) {
+            set_forecast_arr(JSON.parse(forecast_arr));
+          }
+
+        })
+        .finally(() => {
+          set_loading_1(false)
+        })
 
 
       fetch_xml(selected_city.links.now, req_ns)
         .then(xml_doc => xml_to_json_2(xml_doc))
-        .then(json => { set_current_weather(json) })
-        .catch(error => console.error("Error 2: ", error))
-        .finally(() => set_loading_2(false))
+        .then(json => { 
+          set_current_weather(json) 
+          set_error(false)
+        })
+        .catch(error => {
+          set_error(error)
+          set_current_weather(false)
+
+          const forecast_arr = localStorage.getItem('forecast');
+          if (forecast_arr) {
+            set_forecast_arr(JSON.parse(forecast_arr));
+          }
+      
+          console.error("Error 2: ", error)
+        })
+        .finally(() => {
+          set_loading_2(false)
+        })
 
 
 
@@ -106,7 +138,8 @@ export function DataProvider({ children }) {
     show_satellite, set_show_satellite,
     swipe_dir, set_swipe_dir,
     show_favorites, set_show_favorites,
-    sun,set_sun
+    sun, set_sun,
+    error, set_error
   }
 
   return (

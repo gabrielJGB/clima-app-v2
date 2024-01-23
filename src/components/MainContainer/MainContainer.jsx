@@ -7,6 +7,11 @@ import './MainContainer.scss'
 const MainContainer = () => {
   const data = useContext(DataContext)
 
+  useEffect(() => {
+
+
+    
+  }, [])
   
 
   return (

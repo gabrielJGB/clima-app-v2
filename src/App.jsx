@@ -15,10 +15,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-
             <Route path="/day" element={<ForecastPage />} />
             <Route path="/satellite" element={<Satellite />} />
-
             
           </Route>
         </Routes>

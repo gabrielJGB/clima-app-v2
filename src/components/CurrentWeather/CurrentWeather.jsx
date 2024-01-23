@@ -39,6 +39,9 @@ const CurrentWeather = () => {
     return (
       <div className='current-container' onClick={() => navigate("/satellite")}>
 
+
+
+
         {
           data.current_weather.response.cc.date != "1969/12/31" ?
             <>
@@ -156,12 +159,12 @@ const CurrentWeather = () => {
 
   return (
     <>
-      {
-        data.current_weather ?
-          <CurrentWeatherInfo />
-          :
-          <div className='loading'>Cargando...</div>
-      }
+
+      {data.error &&  <div className='current-container'> Sin conexión</div>}
+
+      {data.loading_1 && <div>Cargando...</div>}
+
+      { data.current_weather && <CurrentWeatherInfo />  }
 
 
     </>
