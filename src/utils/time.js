@@ -1,8 +1,14 @@
 export const get_current_date = ()=> {
 
     let date = new Date()
+
+    let year = date.getFullYear()
+    let month = String(date.getMonth()+1).padStart(2, '0') 
+    let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate()
+
     
-    return `${date.getFullYear()}-${String(date.getMonth()).padStart(1, '0') + 1}-${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}`
+
+    return `${year}-${month}-${day}`
 
   }
 
