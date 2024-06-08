@@ -10,7 +10,14 @@ const App = () => {
 
 
   return (
-    <DataProvider>
+
+    <div className="error">
+
+      <h2>Fuera de servicio</h2> 
+      
+    </div>
+    
+    {/*  <DataProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -21,7 +28,7 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
-    </DataProvider>
+    </DataProvider>*/}
   )
 }
 
