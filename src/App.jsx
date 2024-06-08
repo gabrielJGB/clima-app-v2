@@ -1,4 +1,5 @@
 import './styles/App.scss'
+import './error.css'
 import Home from './pages/Home'
 import DataProvider from './context/DataContext'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
