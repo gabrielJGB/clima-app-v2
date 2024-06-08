@@ -28,8 +28,8 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
-    </DataProvider>*/}
-  )
+    </DataProvider>
+  )*/}
 }
 
 export default App
