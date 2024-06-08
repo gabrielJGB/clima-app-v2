@@ -9,16 +9,7 @@ import Satellite from './pages/Satellite'
 
 const App = () => {
 
-
-  return (
-
-    <div className="error">
-
-      <h2>Fuera de servicio</h2> 
-      
-    </div>
-    
-    {/*  <DataProvider>
+ /* <DataProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -30,7 +21,17 @@ const App = () => {
         </Routes>
       </BrowserRouter>
     </DataProvider>
-  )*/}
+  )*/
+  
+  return (
+
+    <div className="error">
+
+      <h2>Fuera de servicio</h2> 
+      
+    </div>
+    
+   )
 }
 
 export default App
